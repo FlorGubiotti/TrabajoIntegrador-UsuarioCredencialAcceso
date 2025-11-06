@@ -65,7 +65,7 @@ El sistema permite gestionar dos entidades principales con las siguientes operac
 
 - **Gestión de Usuarios**: Crear, listar, actualizar y eliminar usuarios aplicando validaciones de unicidad y campos obligatorios.
 - **Gestión de Credenciales de Acceso**: Administrar credenciales de forma independiente o asociadas a usuarios, manteniendo la relación 1:1 opcional.
-- **Búsqueda de Usuarios**: Filtrar usuarios por `username` o `email`, con coincidencias parciales o exactas según la opción seleccionada.
+- **Búsqueda de Usuarios**: Filtrar usuarios por `username` o `email`, con coincidencias exactas según la opción seleccionada.
 - **Soft Delete**: Eliminación lógica que mantiene la integridad referencial entre `Usuario` y `CredencialAcceso`.
 - **Seguridad**: Uso de **PreparedStatements** para prevenir inyecciones SQL y manejo controlado de excepciones.
 - **Validación Multi-capa**: Reglas de negocio implementadas en la capa de servicio y restricciones de unicidad definidas en la base de datos.
@@ -181,8 +181,8 @@ Salida esperada:
 ```
 Conexion exitosa a la base de datos
 Usuario conectado: root@localhost
-Base de datos: dbtpi3
-URL: jdbc:mysql://localhost:3306/dbtpi3
+Base de datos: dbtpiUsuarios
+URL: jdbc:mysql://localhost:3306/dbtpiUsuarios
 Driver: MySQL Connector/J v8.4.0
 ```
 
@@ -366,7 +366,7 @@ Finaliza la ejecución del programa.
 ### Validaciones
 
 - **Input trimming**: Todos los textos de entrada se limpian con `.trim()` antes de procesarse.
-- **Campos obligatorios**: Se verifica que nombre, apellido, username, email y password no estén vacíos.
+- **Campos obligatorios**: Se verifica que username, email y hash_password no estén vacíos.
 - **IDs positivos**: Todas las operaciones verifican `id > 0` antes de interactuar con la base.
 - **Verificación de filas afectadas**: En operaciones `UPDATE` y `DELETE` para confirmar resultados válidos.
 
